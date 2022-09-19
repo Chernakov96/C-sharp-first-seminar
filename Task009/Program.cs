@@ -7,7 +7,8 @@
 // 85 -> 8
 
 int num = new Random().Next(10, 100); // функция - метод, возвращающий значение
-// System.Console.WriteLine($"Случайное число из отрезка 10 - 99 => {number}");// процедурный метод, не возвращает значение
+// System.Console.WriteLine($"Случайное число из отрезка 10 - 99 => {number}");// процедурный метод,
+//не возвращает значение
 // int firstDigit = number / 10;
 // int secondDigit = number % 10;
 
