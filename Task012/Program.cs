@@ -8,13 +8,11 @@ int num1 = Convert.ToInt32(Console.ReadLine());
 Console.Write("Введите второе число ");
 int num2 = Convert.ToInt32(Console.ReadLine());
 
-string result = num1 % num2 == 0 ? Console.WriteLine($"Число {num1} кратно числу {num2}") : Console.WriteLine($"Число {num1}  не кратно числу {num2} остаток от деления = {num1%num2}");
-
-if ((numA % numB) == 0)
+if ((num1 % num2) == 0)
 {
-    Console.WriteLine($"Число {numA} кратно числу {numB}");
+    Console.WriteLine($"Число {num1} кратно числу {num2}");
 }
 else
 { 
-    Console.WriteLine($"Число {numA} не кратно числу {numB}, остаток от деления {numA % numB}"); 
+    Console.WriteLine($"Число {num1} не кратно числу {num2}, остаток от деления {num1 % num2}"); 
 }
