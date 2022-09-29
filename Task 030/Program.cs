@@ -4,15 +4,24 @@
 // Пример:
 // [1,0,1,1,0,1,0,0]
 
-int[] array = new int[8];
+Console.Write("Введите размер массива: ");
+int num = Convert.ToInt32(Console.ReadLine());
 
-void FillArrayRandom()
+int[] arrayGlobal = new int[num];
+
+FillArrayRandom(arrayGlobal);
+PrintArray(arrayGlobal);
+
+void FillArrayRandom(int[] array)
 {
-    for (int i = 0; i < array.Length - 1; i++)
-    {
-        array[i] = Random().Next(0, 2);
-    }
+Random rnd = new Random();
+for (int i = 0; i < array.Length; i++)
+array[i] = rnd.Next(0, 2);
 }
 
-FillArrayRandom;
-
+void PrintArray(int[] array)
+{
+Console.Write("[");
+for (int i = 0; i <= array.Length - 2; i++) Console.Write($"{array[i]},");
+Console.Write($"{array[array.Length - 1]}]");
+}
