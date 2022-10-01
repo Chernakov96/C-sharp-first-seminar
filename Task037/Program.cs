@@ -27,3 +27,25 @@ void PrintArray(int[] array)
     }
     Console.WriteLine("]");
 }
+
+int[] ArrayOfElemMultiplication(int[] array)
+{
+    int len = array.Length;
+    int size = len / 2;
+    if (len % 2 == 1) size++;
+    
+    int[] result = new int[size];
+
+    for (int i = 0; i < size; i++)
+    {
+        result[i] = array[i] * array[(array.Length - 1) - i];
+    }
+    if (len % 2 == 1) result[size - 1] = array[size - 1];
+
+    return result;
+}
+var arraySize = new Random();
+int[] arr = CreateArrayRndInt(arraySize.Next(2,10), -10, 10);
+PrintArray(arr);
+int[] result = ArrayOfElemMultiplication(arr);
+PrintArray(result);
