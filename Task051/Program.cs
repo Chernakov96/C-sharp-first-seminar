@@ -33,3 +33,20 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
+int GetSumMatrixDiagonal(int[,] matrix)
+{
+    int sum = default;
+    for (int i = 0; i < matrix.GetLength(0); i++)
+    {
+        for (int j = 0; j < matrix.GetLength(1); j++)
+        {
+            if(i == j) sum += matrix[i,j];
+        }
+    }
+    return sum;
+}
+
+int[,] array2d = CreateMatrixRndInt(4,4,1,9);
+PrintMatrix(array2d);
+int result = GetSumMatrixDiagonal(array2d);
+Console.WriteLine(result);
