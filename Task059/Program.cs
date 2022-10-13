@@ -1,7 +1,7 @@
-﻿// Задача 55: 
-// 1. Задайте двумерный массив. Напишите программу, которая 
-// 2. заменяет строки на столбцы. 
-// 3. В случае, если это невозможно, программа должна вывести сообщение для пользователя.
+﻿// Задача 59: 
+// 1. Задайте двумерный массив из целых чисел.
+// Напишите программу, которая 
+// 2. удалит строку и столбец, напересечении которых расположен наименьший элемент массива.
 
 int[,] CreateMatrixRndInt(int rows, int columns, int min, int max)
 {
@@ -34,25 +34,28 @@ void PrintMatrix(int[,] matrix)
     }
 }
 
-int[,] TranspArray(int[,] matrix)
+int[,] DeleteMinRowsColumn(int[,] matrix, int[] minIndex)
 {
-    int[,] result = new int[matrix.GetLength(1), matrix.GetLength(0)];
-    for (int i = 0; i < matrix.GetLength(0); i++)
+    int[,] result = new int[matrix.GetLength(0) - 1, matrix.GetLength(1) - 1];
+    int i1 = 0;
+    int j1 = 0;
+    for (int i = 0; i < result.GetLength(0); i++)
     {
-        for (int j = 0; j < matrix.GetLength(1); j++)
+
+        if (i1 == minIndex[0]) i1++;
+        for (int j = 0; j < result.GetLength(1); j++)
         {
-            result[j, i] = matrix[i, j];
+            if (j1 == minIndex[1]) j1++;
+            result[i, j] = matrix[i1, j1];
+            j1++;
         }
+        i1++;
+        j1 = 0;
     }
     return result;
 }
 
+
 int[,] array2d = CreateMatrixRndInt(4, 4, 0, 9);
 PrintMatrix(array2d);
-Console.WriteLine();
-if (array2d.GetLength(0) == array2d.GetLength(1))
-{
-    int[,] transRes = TranspArray(array2d);
-    PrintMatrix(transRes);
-}
-else Console.WriteLine("Ваша матрица не квадратная");
+int array2dMin = FindMatrixMin(array2d);

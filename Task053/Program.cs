@@ -36,11 +36,10 @@ void PrintMatrix(int[,] matrix)
 
 void ReverseFirstLastRow(int[,] matrix)
 {
-    int temp = default;
     for (int j = 0; j < matrix.GetLength(0); j++)
     {
 
-        temp = matrix[0, j];
+        int temp = matrix[0, j];
         matrix[0, j] = matrix[matrix.GetLength(0) - 1, j];
         matrix[matrix.GetLength(0) - 1, j] = temp;
     }
